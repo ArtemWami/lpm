@@ -1,0 +1,2368 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API documentation for LPM",
+    "version": "1.0.5",
+    "title": "LPM",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "artemstrigkov@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://ec2-35-183-44-100.ca-central-1.compute.amazonaws.com:8080"
+    }
+  },
+  "host": "ec2-35-182-71-219.ca-central-1.compute.amazonaws.com:4000",
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "Create user",
+        "description": "Create user",
+        "operationId": "createUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "user",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "Updated user",
+        "description": "Updated user",
+        "operationId": "updateUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "Delete user",
+        "description": "Delete user",
+        "operationId": "deleteUser",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Delete user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/{userId}": {
+      "get": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "user",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/restore/{userId}": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "user",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/listing": {
+      "get": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "user",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/upload": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "uploads users",
+        "description": "",
+        "operationId": "uploadUsers",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userFile",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/upload/assign": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "uploads assign",
+        "description": "",
+        "operationId": "uploadAssign",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userFile",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/pass": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "User set password",
+        "description": "User set password",
+        "operationId": "User set password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User set password",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "User login",
+        "description": "User login",
+        "operationId": "User login",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/forgot": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "Forgot password",
+        "description": "Forgot password",
+        "operationId": "Forgot password",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Forgot password",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ForgotPassword"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations": {
+      "get": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "Locations listing",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "Locations",
+        "description": "Locations",
+        "operationId": "Locations",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Locations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "Locations Update",
+        "description": "Locations Update",
+        "operationId": "Locations Update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Locations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "Locations delete",
+        "description": "Locations delete",
+        "operationId": "Locations delete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Locations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/upload": {
+      "post": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "uploads locations",
+        "description": "",
+        "operationId": "uploadLocations",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locationFile",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/uploadAll": {
+      "post": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "uploads locations",
+        "description": "",
+        "operationId": "uploadLocations",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locationFile",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/{locationId}": {
+      "get": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "Location by id",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/listing": {
+      "get": {
+        "tags": [
+          "LOCATIONS"
+        ],
+        "summary": "Locations listing",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/assign": {
+      "post": {
+        "tags": [
+          "LOCATIONS ASSIGN"
+        ],
+        "summary": "Locations Assign",
+        "description": "Locations Assign",
+        "operationId": "Locations Assign",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Locations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationAssign"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/{locationId}/comment": {
+      "post": {
+        "tags": [
+          "LOCATIONS COMMENTS"
+        ],
+        "summary": "Location add comment",
+        "description": "Location add comment",
+        "operationId": "Location add comment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Location Update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationComment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "LOCATIONS COMMENTS"
+        ],
+        "summary": "Location add comment",
+        "description": "Location add comment",
+        "operationId": "Location add comment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Location Update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationComment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/locations/upload/img": {
+      "post": {
+        "tags": [
+          "LOCATIONS IMG"
+        ],
+        "summary": "uploads comments",
+        "description": "",
+        "operationId": "uploadComments",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "commentImg",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/locations/img/{imgId}": {
+      "delete": {
+        "tags": [
+          "LOCATIONS IMG"
+        ],
+        "summary": "Img remove",
+        "description": "Img remove",
+        "operationId": "Img remove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "imgId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/locations/{locationId}/image": {
+      "post": {
+        "tags": [
+          "LOCATIONS IMG"
+        ],
+        "summary": "Location join img",
+        "description": "Location join img",
+        "operationId": "Location join img",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Join Img",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JoinImage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/locations/estrange": {
+      "post": {
+        "tags": [
+          "LOCATIONS ASSIGN"
+        ],
+        "summary": "Locations Estrange",
+        "description": "Locations Estrange",
+        "operationId": "Locations Estrange",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Locations",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationAssign"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/locations/{locationId}/jobs": {
+      "post": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job create",
+        "description": "Job create",
+        "operationId": "Job create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Job Create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Job"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs": {
+      "get": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Get job",
+        "description": "Get job",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}": {
+      "patch": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job update",
+        "description": "Job update",
+        "operationId": "Job update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Job Update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JobUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job get",
+        "description": "Job get",
+        "operationId": "Job get",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job remove",
+        "description": "Job remove",
+        "operationId": "Job remove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}/tasks": {
+      "patch": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job update tasks",
+        "description": "Job update tasks",
+        "operationId": "Job update tasks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Job Update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JobUpdateTasks"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}/comment": {
+      "post": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job add comment",
+        "description": "Job add comment",
+        "operationId": "Job add comment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Job Update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JobComment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job add comment",
+        "description": "Job add comment",
+        "operationId": "Job add comment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Job Update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JobComment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}/image": {
+      "post": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Job join img",
+        "description": "Job join img",
+        "operationId": "Job join img",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Join Img",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JoinImage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/active": {
+      "get": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Get active job",
+        "description": "Get active job",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/upload": {
+      "post": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "uploads comments",
+        "description": "",
+        "operationId": "uploadComments",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "commentImg",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/upload/{jobId}": {
+      "post": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "uploads comments",
+        "description": "",
+        "operationId": "uploadComments",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "commentImg",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/jobs/img/{imgId}": {
+      "delete": {
+        "tags": [
+          "JOBS"
+        ],
+        "summary": "Img remove",
+        "description": "Img remove",
+        "operationId": "Img remove",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "imgId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/city": {
+      "post": {
+        "tags": [
+          "CITY LIST"
+        ],
+        "summary": "Create city",
+        "description": "Create city",
+        "operationId": "createCity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created city object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CITY LIST"
+        ],
+        "summary": "Get city",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CITY LIST"
+        ],
+        "summary": "Updated city",
+        "description": "Updated city",
+        "operationId": "updateCity",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated city object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CITY LIST"
+        ],
+        "summary": "Delete city",
+        "description": "Delete city",
+        "operationId": "deleteCity",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Delete user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/weather": {
+      "get": {
+        "tags": [
+          "WEATHER"
+        ],
+        "summary": "Get weather information",
+        "description": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    },
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
+      "flow": "implicit",
+      "scopes": {
+        "read:pets": "read your pets",
+        "write:pets": "modify pets in your account"
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Name"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "LastName"
+        },
+        "email": {
+          "type": "string",
+          "example": "worker1@example.com"
+        },
+        "companyName": {
+          "type": "string",
+          "example": "Company"
+        },
+        "city": {
+          "type": "string",
+          "example": "Kharkiv"
+        },
+        "province": {
+          "type": "string",
+          "example": "ON"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "L6C 0Y3"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+14165456432"
+        },
+        "password": {
+          "type": "string",
+          "example": "qwerty123"
+        },
+        "role": {
+          "type": "string",
+          "example": "worker"
+        },
+        "address": {
+          "type": "string",
+          "example": "42 Pushkinskaya street"
+        },
+        "force": {
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "UserUpdate": {
+      "type": "object",
+      "required": [
+        "name",
+        "lastName",
+        "email",
+        "companyName",
+        "city",
+        "province",
+        "postalCode",
+        "phone",
+        "password",
+        "role",
+        "address",
+        "active"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "1"
+        },
+        "name": {
+          "type": "string",
+          "example": "Name"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "LastName"
+        },
+        "email": {
+          "type": "string",
+          "example": "worker1@example.com"
+        },
+        "companyName": {
+          "type": "string",
+          "example": "Company"
+        },
+        "city": {
+          "type": "string",
+          "example": "Kharkiv"
+        },
+        "province": {
+          "type": "string",
+          "example": "ON"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "L6C 0Y3"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+14165456432"
+        },
+        "password": {
+          "type": "string",
+          "example": "qwerty123"
+        },
+        "role": {
+          "type": "string",
+          "example": "worker"
+        },
+        "address": {
+          "type": "string",
+          "example": "42 Pushkinskaya street"
+        },
+        "active": {
+          "type": "string",
+          "example": "inactive"
+        }
+      },
+      "xml": {
+        "name": "UserUpdate"
+      }
+    },
+    "Id": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "1"
+        }
+      },
+      "xml": {
+        "name": "Id"
+      }
+    },
+    "Auth": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "worker1@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "qwerty123"
+        }
+      },
+      "xml": {
+        "name": "Auth"
+      }
+    },
+    "ForgotPassword": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "test@gmail.com"
+        }
+      },
+      "xml": {
+        "name": "ForgotPassword"
+      }
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "CF Sherway gardens"
+        },
+        "address": {
+          "type": "string",
+          "example": "25 The West Mail Etobicoke, ON M9C 1B8"
+        },
+        "city": {
+          "type": "string",
+          "example": "Markham"
+        },
+        "province": {
+          "type": "string",
+          "example": "ON"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "L6C 0H9"
+        },
+        "users": {
+          "type": "array",
+          "example": [ 3, 4 ]
+        }
+      },
+      "xml": {
+        "name": "Location"
+      }
+    },
+    "LocationUpdate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "1"
+        },
+        "name": {
+          "type": "string",
+          "example": "CF Sherway gardens"
+        },
+        "address": {
+          "type": "string",
+          "example": "25 The West Mail Etobicoke, ON M9C 1B8"
+        },
+        "city": {
+          "type": "string",
+          "example": "Markham"
+        },
+        "province": {
+          "type": "string",
+          "example": "ON"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "L6C 0H9"
+        },
+        "users": {
+          "type": "array",
+          "example": [ 27, 28 ]
+        }
+      },
+      "xml": {
+        "name": "Location"
+      }
+    },
+    "LocationAssign": {
+      "type": "object",
+      "properties": {
+        "locationsIds": {
+          "type": "array",
+          "example": [1]
+        },
+        "userId": {
+          "type": "number",
+          "example": 1
+        }
+      },
+      "xml": {
+        "name": "Location"
+      }
+    },
+    "Job": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "example": "2020-11-30T12:22:09.971Z"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2020-12-01T12:22:09.971Z"
+        },
+        "userId": {
+          "type": "string",
+          "example": 34
+        },
+        "comment": {
+          "type": "string",
+          "example": "COMMENT"
+        },
+        "tasks": {
+          "type": "array",
+          "example": [
+            {
+              "taskId": 1,
+              "taskStatusId": 1
+            },
+            {
+              "taskId": 2,
+              "taskStatusId": 1
+            }
+          ]
+        },
+        "imgIds": {
+          "type": "array",
+          "example": [ 1 ]
+        }
+      },
+      "xml": {
+        "name": "JobUpdate"
+      }
+    },
+    "JobUpdate": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "example": "2020-11-05T12:22:09.971Z"
+        },
+        "endDate": {
+          "type": "string",
+          "example": "2020-11-05T12:22:09.971Z"
+        },
+        "userId": {
+          "type": "string",
+          "example": 1
+        },
+        "imgId": {
+          "type": "string",
+          "example": 1
+        },
+        "tasks": {
+          "type": "array",
+          "example": [
+            {
+              "taskId": 1,
+              "jobId": 1,
+              "taskStatusId": 1
+            },
+            {
+              "taskId": 2,
+              "jobId": 1,
+              "taskStatusId": 1
+            }
+          ]
+        }
+      },
+      "xml": {
+        "name": "JobUpdate"
+      }
+    },
+    "JobUpdateTasks": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "example": [
+            {
+              "taskId": 1,
+              "jobId": 1,
+              "taskStatusId": 1
+            },
+            {
+              "taskId": 2,
+              "jobId": 1,
+              "taskStatusId": 1
+            }
+          ]
+        }
+      },
+      "xml": {
+        "name": "JobUpdateTasks"
+      }
+    },
+    "JobComment": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string",
+          "example": "COMMENT"
+        }
+      },
+      "xml": {
+        "name": "JobUpdate"
+      }
+    },
+    "LocationComment": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string",
+          "example": "COMMENT"
+        }
+      },
+      "xml": {
+        "name": "JobUpdate"
+      }
+    },
+    "JoinImage": {
+      "type": "object",
+      "properties": {
+        "imgIds": {
+          "type": "array",
+          "example": [ 1, 2 ]
+        }
+      },
+      "xml": {
+        "name": "JoinImage"
+      }
+    },
+    "City": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Markham"
+        }
+      },
+      "xml": {
+        "name": "City"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+  database:
+    image: postgres:12.3-alpine
+    container_name: snow_db
+    environment:
+      POSTGRES_DB: snowDB
+      POSTGRES_USER: snowAdmin
+      POSTGRES_PASSWORD: afkRTgsRgt851dvs
+    ports:
+      - 5485:5432
